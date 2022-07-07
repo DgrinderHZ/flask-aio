@@ -21,7 +21,8 @@ print("[INFO]", uri)
 # or other relevant config var
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
-
+    
+print("[INFO]", uri) 
 
 db.create_all()
 
