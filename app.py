@@ -16,7 +16,16 @@ db = SQLAlchemy(app)
 
 from models import BlogPost
 # create the database and the db table
-fix_uri_bug()
+import os
+import re
+
+uri = os.getenv("DATABASE_URL")
+print(uri) 
+# or other relevant config var
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
+
+
 db.create_all()
 
 
