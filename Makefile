@@ -1,7 +1,7 @@
 
 
 app:
-	export APP_SETTINGS="config.DevelopmentConfig"
+	export APP_SETTINGS="config.ProductionConfig"
 
 db:
 	export DATABASE_URL="postgresql://admin:admin@localhost/posts"

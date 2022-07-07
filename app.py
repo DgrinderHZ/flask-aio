@@ -6,6 +6,8 @@ from flask import Flask, flash, redirect, render_template, request, session, url
 from decorators import login_required
 from flask_sqlalchemy import SQLAlchemy
 
+from seeds import fix_uri_bug
+
 
 
 app = Flask(__name__)
@@ -14,6 +16,7 @@ db = SQLAlchemy(app)
 
 from models import BlogPost
 # create the database and the db table
+fix_uri_bug()
 db.create_all()
 
 
