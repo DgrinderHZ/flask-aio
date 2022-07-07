@@ -1,4 +1,5 @@
 
+import os
 from flask import Flask, flash, redirect, render_template, request, session, url_for
 
 
@@ -8,9 +9,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'dev'
-# app.config['DATABASE'] = 'sample.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
+app.config.from_object(os.environ['APP_SETTINGS'])
 db = SQLAlchemy(app)
 
 from models import BlogPost
