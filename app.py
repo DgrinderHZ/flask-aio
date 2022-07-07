@@ -1,5 +1,6 @@
 
-
+import os
+import sqlite3
 from flask import Flask, flash, redirect, render_template, request, session, url_for
 from db import get_db, getPosts
 
@@ -15,8 +16,12 @@ app.config['DATABASE'] = 'sample.db'
 @app.route('/')
 @login_required
 def home():
-    d = get_db(app)
-    posts = getPosts(d)
+    posts = []
+    try:
+        d = get_db(app)
+        posts = getPosts(d)
+    except sqlite3.OperationalError:
+        flash('Missing the DB!')
     return render_template('index.html', posts=posts)
 
 @app.route('/welcome')
@@ -35,7 +40,7 @@ def login():
         
         session['logged_in'] = True
         flash('You were just logged in!')
-        return redirect(url_for('welcome'))
+        return redirect(url_for('home'))
     
     return render_template('login.html')
 
@@ -50,4 +55,8 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
+
+# if __name__ == '__main__':
+#     app.run(debug=True)
