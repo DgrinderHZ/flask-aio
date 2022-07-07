@@ -6,9 +6,6 @@ from flask import Flask, flash, redirect, render_template, request, session, url
 from decorators import login_required
 from flask_sqlalchemy import SQLAlchemy
 
-from seeds import fix_uri_bug
-
-
 
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
@@ -20,7 +17,7 @@ import os
 import re
 
 uri = os.getenv("DATABASE_URL")
-print(uri) 
+print("[INFO]", uri) 
 # or other relevant config var
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
