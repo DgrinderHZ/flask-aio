@@ -1,6 +1,16 @@
 from app import db
 from models import BlogPost  
 
+import os
+import re
+
+uri = os.getenv("DATABASE_URL")  # or other relevant config var
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
+# rest of connection code using the connection string `uri`
+
+
+
 # insert data
 db.session.add(BlogPost("Good", "I\'m good."))
 db.session.add(BlogPost("Well", "I\'m well."))
