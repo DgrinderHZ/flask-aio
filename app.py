@@ -1,27 +1,52 @@
 
-import os
-import sqlite3
 from flask import Flask, flash, redirect, render_template, request, session, url_for
-from db import get_db, getPosts
 
 
 from decorators import login_required
+from flask_sqlalchemy import SQLAlchemy
+
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'dev'
-app.config['DATABASE'] = 'sample.db'
+# app.config['DATABASE'] = 'sample.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
+db = SQLAlchemy(app)
+
+from models import BlogPost
+# create the database and the db table
+db.create_all()
 
 
+def getPosts():
+    # cur = db.execute("SELECT * FROM posts;")
+    # posts = [dict(title=row[0], description=row[1]) for row in cur.fetchall()]
+    # db.close()
+    posts = []
+    posts = BlogPost.query.all()
+    return posts
+
+def populate_db():
+    # insert data
+    db.session.add(BlogPost("Good", "I\'m good."))
+    db.session.add(BlogPost("Well", "I\'m well."))
+    db.session.add(BlogPost("Excellent", "I\'m excellent."))
+    db.session.add(BlogPost("Okay", "I\'m okay."))
+
+    # commit the changes
+    try:
+        db.session.commit()
+    except Exception:
+        db.session.rollback()
+    finally:
+        db.session.close()
+
+populate_db()
 
 @app.route('/')
 @login_required
 def home():
-    posts = []
-    try:
-        d = get_db(app)
-        posts = getPosts(d)
-    except sqlite3.OperationalError:
-        flash('Missing the DB!')
+    posts = getPosts()
     return render_template('index.html', posts=posts)
 
 @app.route('/welcome')
@@ -51,7 +76,6 @@ def logout():
     session.pop('logged_in', None)
     flash('You were just logged out!')
     return redirect(url_for('home'))
-
 
 
 # if __name__ == '__main__':
