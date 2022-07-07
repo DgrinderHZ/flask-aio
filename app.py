@@ -14,6 +14,11 @@ app.config['SECRET_KEY'] = 'dev'
 @app.route('/')
 @login_required
 def home():
+    return render_template('index.html')
+
+@app.route('/welcome')
+@login_required
+def welcome():
     return render_template('welcome.html')
 
 
@@ -27,7 +32,7 @@ def login():
         
         session['logged_in'] = True
         flash('You were just logged in!')
-        return redirect(url_for('home'))
+        return redirect(url_for('welcome'))
     
     return render_template('login.html')
 
