@@ -17,12 +17,11 @@ import os
 import re
 
 uri = os.getenv("DATABASE_URL")
-print("[INFO]", uri) 
 # or other relevant config var
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
-    
-print("[INFO]", uri) 
+    app.config['SQLALCHEMY_DATABASE_URI'] = uri
+
 
 db.create_all()
 
