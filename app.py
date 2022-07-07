@@ -1,20 +1,23 @@
 
 
 from flask import Flask, flash, redirect, render_template, request, session, url_for
+from db import get_db, getPosts
 
-from functools import wraps
 
 from decorators import login_required
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'dev'
+app.config['DATABASE'] = 'sample.db'
 
 
 
 @app.route('/')
 @login_required
 def home():
-    return render_template('index.html')
+    d = get_db(app)
+    posts = getPosts(d)
+    return render_template('index.html', posts=posts)
 
 @app.route('/welcome')
 @login_required
