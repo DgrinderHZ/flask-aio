@@ -5,13 +5,17 @@ from flask import Flask, flash, redirect, render_template, request, session, url
 
 from decorators import login_required
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
 db = SQLAlchemy(app)
+app.config.from_object(os.environ['APP_SETTINGS'])
+migrate = Migrate(app, db)
 
 from models import BlogPost
+
 # create the database and the db table
 import os
 import re

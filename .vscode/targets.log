@@ -1,0 +1,274 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
+# GNU Make 4.3
+# Built for Windows32
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Fri Jul 08 16:12:30 2022
+
+# Variables
+
+# environment
+GRADLE_USER_HOME = C:\gradle-7.3.3
+# environment
+JAVA_HOME = C:\Program Files\Eclipse Adoptium\jdk-17.0.1.12-hotspot\
+# environment
+SYSTEMDRIVE = C:
+# environment
+LC_ALL = C
+# environment
+USERPROFILE = C:\Users\zeekzone
+# environment
+LOCALAPPDATA = C:\Users\zeekzone\AppData\Local
+# environment
+VSCODE_CWD = C:\Users\zeekzone\Docs\MOOC\Python\real python
+# environment
+SYSTEMROOT = C:\Windows
+# environment
+PROCESSOR_LEVEL = 6
+# environment
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+# default
+MAKE_COMMAND := make.exe
+# automatic
+@D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
+# environment
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_1988_BPTRCXOUSLPAFBAH
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# automatic
+%D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
+# automatic
+^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = C:\Users\zeekzone\AppData\Roaming\Code\CachedData\92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9
+# environment
+LANG = C
+# default
+.LOADED := 
+# environment
+TMP = C:\Users\zeekzone\AppData\Local\Temp
+# default
+.INCLUDE_DIRS = .
+# makefile
+MAKEFLAGS = pqrR
+# environment
+ONEDRIVE = C:\Users\zeekzone\OneDrive
+# makefile
+CURDIR := c:/Users/zeekzone/Docs/MOOC/Python/real python
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# automatic
+*D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
+# environment
+PROGRAMFILES = C:\Program Files
+# environment
+MFLAGS = -pqrR
+# default
+.SHELLFLAGS := -c
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# automatic
++D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 1988
+# automatic
+?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
+# automatic
+*F = $(notdir $*)
+# automatic
+<D = $(patsubst %/,%,$(patsubst %\,%,$(dir $<)))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environment
+ONEDRIVECONSUMER = C:\Users\zeekzone\OneDrive
+# default
+MAKE_HOST := Windows32
+# environment
+PYCHARM EDU = C:\Program Files\JetBrains\PyCharm Edu 2021.2.3\bin;
+# environment
+PROGRAMDATA = C:\ProgramData
+# default
+SHELL := sh.exe
+# environment
+HOMEPATH = \Users\zeekzone
+# default
+MAKECMDGOALS := all
+# environment
+CPLEX_STUDIO_BINARIES221 = C:\Program Files\IBM\ILOG\CPLEX_Studio_Community221\opl\bin\x64_win64;C:\Program Files\IBM\ILOG\CPLEX_Studio_Community221\opl\oplide\;C:\Program Files\IBM\ILOG\CPLEX_Studio_Community221\cplex\bin\x64_win64;C:\Program Files\IBM\ILOG\CPLEX_Studio_Community221\cpoptimizer\bin\x64_win64
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environment
+COMSPEC = C:\Windows\system32\cmd.exe
+# environment
+WINDIR = C:\Windows
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = C:\Program Files\IBM\ILOG\CPLEX_Studio_Community221\opl\bin\x64_win64;C:\Program Files\IBM\ILOG\CPLEX_Studio_Community221\opl\oplide\;C:\Program Files\IBM\ILOG\CPLEX_Studio_Community221\cplex\bin\x64_win64;C:\Program Files\IBM\ILOG\CPLEX_Studio_Community221\cpoptimizer\bin\x64_win64;C:\Program Files\Eclipse Adoptium\jdk-17.0.1.12-hotspot\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Python38\Scripts\;C:\Program Files\Python38\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C;C:\Program Files\Graphviz\bin;C:\Users\zeekzone\AppData\Local\Android\Sdk\emulator\bin64;C:\Users\zeekzone\AppData\Local\Android\Sdk;C:\Users\zeekzone\AppData\Local\Android\Sdk\tools;C:\Program Files\Tesseract-OCR;C:\Users\zeekzone\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\zeekzone\AppData\Local\Programs\Python\Python310\;C:\Users\zeekzone\AppData\Local\Microsoft\WindowsApps;C:\Users\zeekzone\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\zeekzone\AppData\Local\Programs\MiKTeX\miktex\bin\x64\;C:\Program Files\JetBrains\PyCharm Edu 2021.2.3\bin;;C:\MinGW\bin;C:\Program Files\LLVM\bin;C:\Users\zeekzone\anaconda3\Scripts;C:\gradle-7.3.3\bin;C:\Users\zeekzone\AppData\Roaming\npm;C:\Program Files\doxygen\bin;C:\cbp2make-stl-rev147-all\bin\Release;C:\upx-3.96-win64;C:\flutter\bin;C:\Program Files\Tesseract-OCR;C:\Program Files\heroku\bin
+# environment
+COMPUTERNAME = DESKTOP-9DURVO1
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# environment
+PROMPT = $P$G
+# environment
+LOGONSERVER = \\DESKTOP-9DURVO1
+# environment
+USERNAME = zeekzone
+# environment
+COMMONPROGRAMFILES = C:\Program Files\Common Files
+# automatic
+?F = $(notdir $?)
+# environment
+PROGRAMW6432 = C:\Program Files
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+# automatic
++F = $(notdir $+)
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+USERDOMAIN = DESKTOP-9DURVO1
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+OS = Windows_NT
+# makefile
+.DEFAULT_GOAL := app
+# default
+MAKE_VERSION := 4.3
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# environment
+USERDOMAIN_ROAMINGPROFILE = DESKTOP-9DURVO1
+# environment
+NUMBER_OF_PROCESSORS = 4
+# environment
+PUBLIC = C:\Users\Public
+# environment
+MOZ_PLUGIN_PATH = C:\Program Files (x86)\Foxit Software\Foxit PDF Reader\plugins\
+# environment
+APPDATA = C:\Users\zeekzone\AppData\Roaming
+# environment
+HOMEDRIVE = C:
+# environment
+PROCESSOR_ARCHITECTURE = AMD64
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+TEMP = C:\Users\zeekzone\AppData\Local\Temp
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\8c1051a1255f75a0f05777095e65bbda-1.69.0-main-sock
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# environment
+SESSIONNAME = Console
+# environment
+CPLEX_STUDIO_DIR221 = C:\Program Files\IBM\ILOG\CPLEX_Studio_Community221
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync load
+# environment
+PROCESSOR_REVISION = 3d04
+# environment
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 61 Stepping 4, GenuineIntel
+# variable set hash-table stats:
+# Load=93/1024=9%, Rehash=0, Collisions=11/120=9%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (key c:/Users/zeekzone/Docs/MOOC/Python/real python, mtime 1657293135): 20 files, no impossibilities.
+
+# 20 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+app:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 4):
+	export APP_SETTINGS="config.ProductionConfig"
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-07 23:02:54
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+all:
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+db:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 7):
+	export DATABASE_URL="postgresql://admin:admin@localhost/posts"
+	
+	
+	
+	
+
+# files hash-table stats:
+# Load=6/1024=1%, Rehash=0, Collisions=0/16=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 25 / storage = 200 B / avg = 8 B
+# current buf: size = 8162 B / used = 200 B / count = 25 / avg = 8 B
+
+# strcache performance: lookups = 31 / hit rate = 19%
+# hash-table stats:
+# Load=25/8192=0%, Rehash=0, Collisions=0/31=0%
+# Finished Make data base on Fri Jul 08 16:12:30 2022
+
+ 
