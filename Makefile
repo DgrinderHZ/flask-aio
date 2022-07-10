@@ -3,18 +3,31 @@ export APP_SETTINGS:=config.DevelopmentConfig
 export DATABASE_URL:=postgresql://admin:admin@localhost/posts
 
 run:
-	flask run
-
-venv:
-	source venv/Scripts/activate
+	py run.py --reload
 
 migrations:
 	flask db init
 
 mkmigrations:
-	flask db migrate -m "Initial migration."
+	flask db migrate -m "$(name)"
 
 migrate:
 	flask db upgrade
-	
+
+history:
+	flask db history
+
+tests:
+	py tests.py
+
+seeds: 
+	py seeds.py
+help:
+	@echo run: flask run
+	@echo migrations: flask db init
+	@echo mkmigrations: flask db migrate -m "<name>"
+	@echo migrate: flask db upgrade
+	@echo history: flask db history
+	@echo tests: py tests.py
+	@echo seeds: py seeds.py
 # export DATABASE_URL="sqlite:///posts.db"
