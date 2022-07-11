@@ -22,6 +22,10 @@ tests:
 
 seeds: 
 	py seeds.py
+
+freeze: 
+	pip freeze > requirements.txt
+
 help:
 	@echo run: flask run
 	@echo migrations: flask db init
@@ -30,4 +34,5 @@ help:
 	@echo history: flask db history
 	@echo tests: py tests.py
 	@echo seeds: py seeds.py
+	@echo freeze: pip freeze > requirements.txt
 # export DATABASE_URL="sqlite:///posts.db"
