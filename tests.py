@@ -94,7 +94,23 @@ class AuthViewsTests(BaseTestCase):
         response =  self.client.get('/logout', follow_redirects=True)
         self.assertIn(b'Please log in to access this page', response.data)
 
-
+    # Ensure user can register
+    def test_user_registeration(self):
+        response = self.client.post('/register', data=dict(
+            username='Michael', email='michael@realpython.com',
+            password='python', confirm_password='python'
+        ), follow_redirects=True)
+        self.assertIn(b'login', response.data)
+        self.client.get('/logout', follow_redirects=True)
+        with self.client:
+            response = self.client.post(
+                '/login',
+                data=dict(username="Michael", password="python"),
+                follow_redirects=True
+            )
+            self.assertIn(b'You were logged in', response.data)
+            self.assertTrue(current_user.name == "Michael")
+            self.assertTrue(current_user.is_active())
 
 if __name__ == '__main__':
     unittest.main()

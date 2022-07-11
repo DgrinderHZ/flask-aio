@@ -1,6 +1,7 @@
 
 export APP_SETTINGS:=config.DevelopmentConfig
 export DATABASE_URL:=postgresql://admin:admin@localhost/posts
+export FLASK_APP:=project
 
 run:
 	py run.py --reload
