@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jul 08 16:12:30 2022
+# Make data base, printed on Mon Jul 11 18:30:09 2022
 
 # Variables
 
@@ -37,7 +37,7 @@ MAKE_COMMAND := make.exe
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_1988_BPTRCXOUSLPAFBAH
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_22228_UUFUYMXNTLLEHTWA
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -83,7 +83,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 1988
+VSCODE_PID = 22228
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # automatic
@@ -151,7 +151,7 @@ GNUMAKEFLAGS :=
 # environment
 OS = Windows_NT
 # makefile
-.DEFAULT_GOAL := app
+.DEFAULT_GOAL := run
 # default
 MAKE_VERSION := 4.3
 # environment
@@ -192,14 +192,18 @@ ALLUSERSPROFILE = C:\ProgramData
 SESSIONNAME = Console
 # environment
 CPLEX_STUDIO_DIR221 = C:\Program Files\IBM\ILOG\CPLEX_Studio_Community221
+# makefile (from 'Makefile', line 3)
+DATABASE_URL := postgresql://admin:admin@localhost/posts
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync load
 # environment
 PROCESSOR_REVISION = 3d04
+# makefile (from 'Makefile', line 2)
+APP_SETTINGS := config.DevelopmentConfig
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 61 Stepping 4, GenuineIntel
 # variable set hash-table stats:
-# Load=93/1024=9%, Rehash=0, Collisions=11/120=9%
+# Load=95/1024=9%, Rehash=0, Collisions=11/122=9%
 
 # Pattern-specific Variable Values
 
@@ -207,9 +211,9 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 61 Stepping 4, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/zeekzone/Docs/MOOC/Python/real python, mtime 1657293135): 20 files, no impossibilities.
+# . (key c:/Users/zeekzone/Docs/MOOC/Python/real python, mtime 1657420493): 19 files, no impossibilities.
 
-# 20 files, no impossibilities in 1 directories.
+# 19 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -217,19 +221,47 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 61 Stepping 4, GenuineIntel
 
 # Files
 
-app:
+migrations:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 4):
-	export APP_SETTINGS="config.ProductionConfig"
+#  recipe to execute (from 'Makefile', line 9):
+	flask db init
+
+seeds:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 24):
+	py seeds.py
+
+mkmigrations:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 12):
+	flask db migrate -m "$(name)"
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-07 23:02:54
+#  Last modified 2022-07-10 03:37:36
 #  File has been updated.
 #  Successfully updated.
+
+tests:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 21):
+	py tests.py
+
+history:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 18):
+	flask db history
 
 # Not a target:
 .DEFAULT:
@@ -244,31 +276,47 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
-db:
+run:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 7):
-	export DATABASE_URL="postgresql://admin:admin@localhost/posts"
-	
-	
-	
-	
+#  recipe to execute (from 'Makefile', line 6):
+	py run.py --reload
+
+help:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 26):
+	@echo run: flask run
+	@echo migrations: flask db init
+	@echo mkmigrations: flask db migrate -m "<name>"
+	@echo migrate: flask db upgrade
+	@echo history: flask db history
+	@echo tests: py tests.py
+	@echo seeds: py seeds.py
+
+migrate:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 15):
+	flask db upgrade
 
 # files hash-table stats:
-# Load=6/1024=1%, Rehash=0, Collisions=0/16=0%
+# Load=12/1024=1%, Rehash=0, Collisions=0/22=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 25 / storage = 200 B / avg = 8 B
-# current buf: size = 8162 B / used = 200 B / count = 25 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 29 / storage = 235 B / avg = 8 B
+# current buf: size = 8162 B / used = 235 B / count = 29 / avg = 8 B
 
-# strcache performance: lookups = 31 / hit rate = 19%
+# strcache performance: lookups = 42 / hit rate = 30%
 # hash-table stats:
-# Load=25/8192=0%, Rehash=0, Collisions=0/31=0%
-# Finished Make data base on Fri Jul 08 16:12:30 2022
+# Load=29/8192=0%, Rehash=0, Collisions=0/42=0%
+# Finished Make data base on Mon Jul 11 18:30:09 2022
 
  
