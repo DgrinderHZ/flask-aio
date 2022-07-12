@@ -1,5 +1,7 @@
-from flask import Blueprint, render_template
-from flask_login import login_required
+from flask import Blueprint, flash, redirect, render_template, request, url_for
+from flask_login import current_user, login_required
+from project.home.froms import PostForm
+from project import db
 
 # from decorators import login_required
 from project.models import BlogPost
@@ -15,11 +17,29 @@ def getPosts():
     return posts
 
 
-@bp.route('/')
+@bp.route('/', methods=["GET", "POST"])
 @login_required
 def home():
     posts = getPosts()
-    return render_template('index.html', posts=posts)
+    form = PostForm(request.form)
+    if form.validate_on_submit():
+        post = BlogPost( 
+                        title=form.title.data,
+                        description=form.description.data,
+                        author_id=current_user.id
+                        )
+        
+        db.session.add(post)
+
+        try:
+            db.session.commit()
+            return redirect(url_for('home.home'))
+        except Exception:
+            db.session.rollback()
+        finally:
+            db.session.close()
+
+    return render_template('index.html', posts=posts, form=form)
 
 @bp.route('/welcome')
 def welcome():

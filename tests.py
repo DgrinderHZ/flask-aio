@@ -1,4 +1,5 @@
 import unittest
+from urllib import response
 
 from flask_login import current_user
 from project import app, db
@@ -16,6 +17,7 @@ class BaseTestCase(TestCase):
     def setUp(self):
         db.create_all()
         db.session.add(User("admin", "admin@admin.com", "admin"))
+        db.session.add(User("admin2", "admin2@admin.com", "admin2"))
         db.session.add(BlogPost("Test post", "This is a test. Only a test.", 1))
         db.session.commit()
 
@@ -40,6 +42,24 @@ class FlaskTestCase(BaseTestCase):
             follow_redirects=True
         )
         self.assertIn(b'This is a test. Only a test', response.data)
+
+    def test_posts_get_added(self):
+        with self.client:
+            response =  self.client.post(
+                '/login',
+                data=dict(username="admin2", password="admin2"),
+                follow_redirects=True
+            )
+
+            response = self.client.post(
+                '/', 
+                data=dict(title='testing title', description='added...', author_id=current_user.id),
+                follow_redirects=True
+            )
+
+            self.assertIn(b"testing title", response.data)
+            self.assertIn(b"added...", response.data)
+            self.assertIn(b"admin2", response.data)
 
 
 class AuthViewsTests(BaseTestCase):
